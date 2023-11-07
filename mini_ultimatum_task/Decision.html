@@ -1,0 +1,29 @@
+{% block content %}
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <div class="alert alert-primary">
+              <p>Player 1 chooses to send the money  <strong>{{ player1_offer }}</strong> to Player 2</p>
+          </div>
+
+          <p class="mt-4">
+            You have an option to punish player 1 or not to,so the transaction proceeds and Money is sent to player 2
+          </p>
+          <p class="mt-4">
+            In the event that you decide to punish player 1, neither player 1 nor player 2 receive any earnings.
+          </p>
+          <p class="mt-4">
+            In the event that you choose not to punish player 1, both player 1 and player 2 receive earnings in this order:
+              <ol class="list-group list-group-numbered">
+                  <li class="list-group-item">Player 1's Payment = <strong>{{ endowment }} - {{ group.offer }}</strong></li>
+                  <li class="list-group-item">Player 2's Payment = <strong>{{ group.offer }}</strong></li>
+              </ol>
+          </p>
+          <div class="text-center mt">
+              {{ formfields }}
+              {{ next_button }}
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
