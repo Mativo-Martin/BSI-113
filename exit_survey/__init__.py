@@ -4,11 +4,10 @@ doc = """
 
 The Exit Survey
 
-This app is designed to collect additional information and feedback from participants after completing the The Mini Ultimatum Game. 
-	
-The survey includes questions about the capital city of Kenya, a math problem, and the population of Kenya.
+After players finish The Mini Ultimatum Game, this app is meant to gather more data and feedback from them.
+The survey asks about Kenya's population, a math problem, and the country's capital city.
 
-Thank you for your participation.
+Thank you for partcipating in this survey.
 
 """
 
@@ -27,7 +26,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    capital_city = models.IntegerField(
+    kenyan_capital = models.IntegerField(
         label="What is the capital city of Kenya?",
         choices=[
             [1, 'Kisumu'],
@@ -41,24 +40,24 @@ class Player(BasePlayer):
         label="What is 14 + 15?",
     )
 
-    kenya_population = models.IntegerField(
+    kenyan_population = models.IntegerField(
         label="What is the population of Kenya?",
     )
-
+        #method to check that the answer to the math question has to be 29(hardcoded)
     def correct_math_question_answer(self):
     	return self.math_question == 29
 
 
-# PAGES
+# Different Pwithin the App
 class KenyanCapital(Page):
     form_model = 'player'
-    form_fields = ['capital_city']
+    form_fields = ['kenyan_capital']
 
 
 class MathQuestion(Page):
     form_model = 'player'
     form_fields = ['math_question']
-
+#validation of the answer to the math question ,added error handling for incorrect answer
     def error_message(self, values):
         if values['math_question'] != 29:
             return 'Your answer to the math question is incorrect. Please try again.'
@@ -66,7 +65,7 @@ class MathQuestion(Page):
 
 class KenyanPopulation(Page):
     form_model = 'player'
-    form_fields = ['kenya_population']
+    form_fields = ['kenyan_population']
 
 
 class ThankYou(Page):
