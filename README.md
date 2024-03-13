@@ -2,6 +2,8 @@
 
 
 
+This is a project created to demonstrate a basic interactive game using the oTree programming interface.
+
 # Mini Ultimatum Game plus Exit Survey
 Program a mini ultimatum game that will consist of 3 players.
 ### Mini Ultimatum Game
@@ -35,7 +37,7 @@ In this game, you will take on one of three roles:
             a. The amount he decided to send to player 2
             b. The decision that Player 3 made
             c. The payout that he gets.
-        - 2. Player 2:
+    - 2. Player 2:
             a. The amount that Player 1 decided to send him
             b. The decision that Player 3 made
             c. The payout that he gets
